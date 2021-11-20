@@ -8,9 +8,9 @@ namespace Koszyk
 {
     public class Przedmiot
     {
-        string nazwa;
-        int cena;
-        int ilosc;
+        public string nazwa;
+        public int cena;
+        public int ilosc;
 
         public Przedmiot(string nazwa, int cena, int ilosc)
         {

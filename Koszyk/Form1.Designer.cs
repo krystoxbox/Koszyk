@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listaZakupuw = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -40,19 +40,23 @@
             this.button9 = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.dodajButton = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.kup = new System.Windows.Forms.Button();
             this.cenaLbl = new System.Windows.Forms.Label();
             this.cenaTotalLbl = new System.Windows.Forms.Label();
+            this.zamienbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
-            // listBox1
+            // listaZakupuw
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(423, 29);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(320, 342);
-            this.listBox1.TabIndex = 0;
+            this.listaZakupuw.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.listaZakupuw.FormattingEnabled = true;
+            this.listaZakupuw.ItemHeight = 24;
+            this.listaZakupuw.Location = new System.Drawing.Point(423, 29);
+            this.listaZakupuw.Name = "listaZakupuw";
+            this.listaZakupuw.Size = new System.Drawing.Size(320, 340);
+            this.listaZakupuw.TabIndex = 0;
+            this.listaZakupuw.SelectedIndexChanged += new System.EventHandler(this.listaZakupuw_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -175,9 +179,20 @@
             // 
             this.numericUpDown1.Font = new System.Drawing.Font("Georgia", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.numericUpDown1.Location = new System.Drawing.Point(146, 377);
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(118, 47);
             this.numericUpDown1.TabIndex = 10;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // dodajButton
             // 
@@ -189,17 +204,19 @@
             this.dodajButton.TabIndex = 11;
             this.dodajButton.Text = "DODAJ";
             this.dodajButton.UseVisualStyleBackColor = true;
+            this.dodajButton.Click += new System.EventHandler(this.dodajButton_Click);
             // 
-            // button11
+            // kup
             // 
-            this.button11.Enabled = false;
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.button11.Location = new System.Drawing.Point(625, 377);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(118, 47);
-            this.button11.TabIndex = 12;
-            this.button11.Text = "KUP";
-            this.button11.UseVisualStyleBackColor = true;
+            this.kup.Enabled = false;
+            this.kup.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.kup.Location = new System.Drawing.Point(625, 377);
+            this.kup.Name = "kup";
+            this.kup.Size = new System.Drawing.Size(118, 47);
+            this.kup.TabIndex = 12;
+            this.kup.Text = "KUP";
+            this.kup.UseVisualStyleBackColor = true;
+            this.kup.Click += new System.EventHandler(this.kup_Click);
             // 
             // cenaLbl
             // 
@@ -219,14 +236,27 @@
             this.cenaTotalLbl.TabIndex = 14;
             this.cenaTotalLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // zamienbutton
+            // 
+            this.zamienbutton.Enabled = false;
+            this.zamienbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.zamienbutton.Location = new System.Drawing.Point(279, 430);
+            this.zamienbutton.Name = "zamienbutton";
+            this.zamienbutton.Size = new System.Drawing.Size(118, 47);
+            this.zamienbutton.TabIndex = 15;
+            this.zamienbutton.Text = "ZAMIEŃ";
+            this.zamienbutton.UseVisualStyleBackColor = true;
+            this.zamienbutton.Click += new System.EventHandler(this.button10_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(750, 483);
+            this.Controls.Add(this.zamienbutton);
             this.Controls.Add(this.cenaTotalLbl);
             this.Controls.Add(this.cenaLbl);
-            this.Controls.Add(this.button11);
+            this.Controls.Add(this.kup);
             this.Controls.Add(this.dodajButton);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.button7);
@@ -238,9 +268,10 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listaZakupuw);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
@@ -248,7 +279,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listaZakupuw;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
@@ -260,9 +291,10 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Button dodajButton;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button kup;
         private System.Windows.Forms.Label cenaLbl;
         private System.Windows.Forms.Label cenaTotalLbl;
+        private System.Windows.Forms.Button zamienbutton;
     }
 }
 
